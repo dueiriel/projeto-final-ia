@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Local AI Assistant</title>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Assistente local</p>
+          <h1>Local AI Assistant</h1>
+        </div>
+        <div class="model-pill">Phi-3 via Ollama</div>
+      </header>
+
+      <main class="workspace">
+        <section class="chat-panel" aria-labelledby="chat-title">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Fase 1</p>
+              <h2 id="chat-title">Chat</h2>
+            </div>
+            <span id="chat-status" class="status idle">Pronto</span>
+          </div>
+
+          <div id="message-list" class="message-list" aria-live="polite">
+            <article class="message assistant">
+              <p>Olá. Faça uma pergunta ou carregue um PDF, áudio ou vídeo para usar como contexto.</p>
+            </article>
+          </div>
+
+          <form id="chat-form" class="chat-form">
+            <label class="sr-only" for="question-input">Pergunta</label>
+            <textarea id="question-input" rows="3" placeholder="Digite sua pergunta" required></textarea>
+            <button type="submit">Enviar</button>
+          </form>
+        </section>
+
+        <aside class="context-panel" aria-label="Contextos carregados">
+          <section class="upload-section" aria-labelledby="pdf-title">
+            <div class="section-title">
+              <div>
+                <p class="eyebrow">Fase 2</p>
+                <h2 id="pdf-title">PDF</h2>
+              </div>
+              <button class="ghost-button" type="button" data-clear="pdf">Limpar</button>
+            </div>
+            <label class="file-control">
+              <span>Selecionar PDF</span>
+              <input id="pdf-input" type="file" accept="application/pdf,.pdf">
+            </label>
+            <p id="pdf-status" class="status-line">Nenhum PDF carregado</p>
+          </section>
+
+          <section class="upload-section" aria-labelledby="audio-title">
+            <div class="section-title">
+              <div>
+                <p class="eyebrow">Fase 3</p>
+                <h2 id="audio-title">Áudio</h2>
+              </div>
+              <button class="ghost-button" type="button" data-clear="audio">Limpar</button>
+            </div>
+            <label class="file-control">
+              <span>Selecionar áudio</span>
+              <input id="audio-input" type="file" accept="audio/*,.mp3,.mp4,.m4a,.wav">
+            </label>
+            <p id="audio-status" class="status-line">Nenhum áudio transcrito</p>
+          </section>
+
+          <section class="upload-section" aria-labelledby="video-title">
+            <div class="section-title">
+              <div>
+                <p class="eyebrow">Fase 4</p>
+                <h2 id="video-title">Vídeo</h2>
+              </div>
+              <button class="ghost-button" type="button" data-clear="video">Limpar</button>
+            </div>
+            <label class="file-control">
+              <span>Selecionar vídeo</span>
+              <input id="video-input" type="file" accept="video/mp4,.mp4">
+            </label>
+            <p id="video-status" class="status-line">Nenhum vídeo transcrito</p>
+          </section>
+
+          <section class="loaded-contexts" aria-labelledby="contexts-title">
+            <h2 id="contexts-title">Contextos carregados</h2>
+            <ul>
+              <li><span>PDF</span><strong id="pdf-context-state">vazio</strong></li>
+              <li><span>Áudio</span><strong id="audio-context-state">vazio</strong></li>
+              <li><span>Vídeo</span><strong id="video-context-state">vazio</strong></li>
+            </ul>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script type="module" src="/js/app.js"></script>
+  </body>
+</html>
