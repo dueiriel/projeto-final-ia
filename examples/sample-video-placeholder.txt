@@ -1,0 +1,5 @@
+Coloque aqui um vídeo curto em .mp4 para testar a Fase 4.
+
+O backend usa FFmpeg para extrair o áudio e depois envia o WAV para o whisper.cpp.
+
+Não versionar arquivos grandes no GitHub.

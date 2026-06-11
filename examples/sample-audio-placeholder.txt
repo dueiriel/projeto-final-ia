@@ -1,0 +1,9 @@
+Coloque aqui um arquivo de áudio curto para testar a Fase 3.
+
+Formatos aceitos pela interface:
+- .mp3
+- .mp4 usado como áudio
+- .m4a
+- .wav
+
+Não versionar arquivos grandes no GitHub.
